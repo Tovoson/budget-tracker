@@ -1,109 +1,160 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="budget-tracker.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./transaction.css" />
     <script src="./budget-tracker.js" defer></script>
     <title>Budget tracker</title>
-</head>
+  </head>
 
-<body>
+  <body>
+    <!-- Sidebar -->
     <div class="sidebar">
-        <div class="header-sidebar">
-            <div class="logo-container" id="logoContainer">
-
-                <img src="./icons/icons8-portefeuille-60 (1).png" class="sidebar-logo" alt="logo">
-            </div>
-            <div class="title-sidebar">
-                <h1>Fiscal intelligence</h1>
-                <p>Personnal account</p>
-            </div>
+      <div class="header-sidebar">
+        <div class="logo-container" id="logoContainer">
+          <img
+            src="./icons/icons8-portefeuille-60 (1).png"
+            class="sidebar-logo"
+            alt="logo"
+          />
         </div>
-        <div class="menu-list">
-            <div class="item-menu">
-                <img src="./icons/icons8-disposition-du-tableau-de-bord-48.png" class="img-item" alt="logo">
-                <a href="#" class="menu-item" id="menuItem">Dashboard</a>
-            </div>
-            <div class="item-menu">
-                <img src="./icons/icons8-transaction-64.png" class="img-item" alt="logo">
-                <a href="#" class="menu-item" id="menuItem">Transactions</a>
-            </div>
-
+        <div class="title-sidebar">
+          <h1>Fiscal intelligence</h1>
+          <p>Personnal account</p>
         </div>
+      </div>
+      <div class="menu-list">
+        <div class="item-menu">
+          <img
+            src="./icons/icons8-disposition-du-tableau-de-bord-48.png"
+            class="img-item"
+            alt="logo"
+          />
+          <a href="#" class="menu-item" id="menuItem">Dashboard</a>
+        </div>
+        <div class="item-menu">
+          <img
+            src="./icons/icons8-transaction-64.png"
+            class="img-item"
+            alt="logo"
+          />
+          <a href="#" class="menu-item" id="menuItem">Transactions</a>
+        </div>
+      </div>
     </div>
 
     <div class="all-element-content">
-        <div class="header-content">
-            <input type="text">
-            <div class="icon-header-content">
-                <img src="./icons/icons8-transaction-64.png" class="img-item" alt="logo">
-            </div>
+      <div class="header-content">
+        <input type="text" />
+        <div class="icon-header-content">
+          <img
+            src="./icons/icons8-transaction-64.png"
+            class="img-item"
+            alt="logo"
+          />
         </div>
-        <div class="element">
-            <div class="Titre">
-                <div class="path">
-                    <img class="home-icon" src="./icons/icons8-accueil-24.png" alt="home">
-                    <span>/</span>
-                    <span>Transactions</span>
-                    <span>/</span>
-                    <span>Nouvelle dépense</span>
-                </div>
-                <h2>Ajouter une dépense</h2>
-                <h3>Saisissez les détails de votre transaction pour mettre à jour votre budget</h3>
-            </div>
-            <div class="main-element">
-                <form action="">
-                    <div class="input-form">
-                        <div class="input-label-left">
-                            <label for="">MONTANT</label>
-                            <div class="input-container">
-                                <img src="./icons/icons8-accueil-24.png" alt="">
-                                <input type="number" class="montant-input" placeholder="000">
-                                <select name="" id="" class="montant">
-                                    <option value="">Euro</option>
-                                    <option value="">Ariary</option>
-                                    <option value="">Dollar</option>
-                                </select>
-                            </div>
-                            <label for="">DATE</label>
-                            <div class="input-container">
-                                <img src="./icons/icons8-accueil-24.png" alt="">
-                                <input type="date" class="montant">
-                            </div>
-                        </div>
-                        <div class="input-label-right">
-                            <label for="">Nom de la dépense</label>
-                            <input type="text">
-                            <div class="categorie">Categorie</div>
-                        </div>
-                    </div>
-                    <div class="note-container">
-                        <label for="note">NOTES (OPTIONNEL)</label>
-                        <textarea name="note" id="note"></textarea>
-                    </div>
-                    <div class="but-container">
+      </div>
 
-                        <button type="reset">annuler</button>
-                        <button type="button">Enregistrer la dépense</button>
-                    </div>
-                </form>
-                <div class="right-side">
-                    <div class="description">
-                        <p>Lorem ipsum dolor sit, amet consecteturt
-                            neque</p>
-                    </div>
-                    <div class="card">
-                        1
-                    </div>
-                    <div class="card">
-                        2
-                    </div>
-                </div>
-            </div>
+      <div class="element">
+        <div class="Titre">
+          <div class="path">
+            <img
+              class="home-icon"
+              src="./icons/icons8-accueil-24.png"
+              alt="home"
+            />
+            <span>/</span>
+            <span>Transactions</span>
+            <span>/</span>
+            <span>Nouvelle dépense</span>
+          </div>
+          <h2>Ajouter une dépense</h2>
+          <h3>
+            Saisissez les détails de votre transaction pour mettre à jour votre
+            budget
+          </h3>
         </div>
+
+        <div class="main-element">
+          <!-- Right side -->
+          <form action="">
+            <div class="container-input">
+              <div class="input-left">
+                <label for="">MONTANT</label>
+                <div class="input-container">
+                  <img src="./icons/icons8-accueil-24.png" alt="" />
+                  <input
+                    type="number"
+                    class="montant-input"
+                    placeholder="0.00"
+                  />
+                  <select name="" id="" class="montant">
+                    <option value="">Euro</option>
+                    <option value="">Ariary</option>
+                    <option value="">Dollar</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="input-right">
+                <label for="">Nom de la dépense</label>
+                <input
+                  type="text"
+                  class="nom-depense-input"
+                  placeholder="ex:Course hebdomadaire"
+                />
+              </div>
+            </div>
+
+            <div class="container-input">
+              <div class="input-left">
+                <label for="">DATE</label>
+                <div class="input-container">
+                  <img src="./icons/icons8-accueil-24.png" alt="" />
+                  <input type="date" class="montant" />
+                </div>
+              </div>
+              <div class="input-right">
+                <label for="">Catégorie</label>
+                <div class="categorie-container">
+                  <div class="categorie-nourriture">
+                    <img src="./icons/icons8-accueil-24.png" alt="" />
+                    <p class="categorie-txt">Nourriture</p>
+                  </div>
+                  <div class="categorie-loisir">
+                    <img src="./icons/icons8-accueil-24.png" alt="" />
+                    <p class="categorie-txt">Loisir</p>
+                  </div>
+                  <div class="categorie-loyer">
+                    <img src="./icons/icons8-accueil-24.png" alt="" />
+                    <p class="categorie-txt">Loyer</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="note-container">
+              <label for="note">NOTES (OPTIONNEL)</label>
+              <textarea name="note" id="note"></textarea>
+            </div>
+
+            <div class="btn-container">
+              <button type="reset">annuler</button>
+              <button type="button">Enregistrer la dépense</button>
+            </div>
+          </form>
+
+          <!-- Right side -->
+          <div class="right-side">
+            <div class="description">
+              <p>Lorem ipsum dolor sit, amet consecteturt neque</p>
+            </div>
+            <div class="card">1</div>
+            <div class="card">2</div>
+          </div>
+        </div>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>
