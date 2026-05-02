@@ -13,121 +13,126 @@
     <div class="sidebar">
       <div class="header-sidebar">
         <div class="logo-container" id="logoContainer">
-          <img
-            src="./icons/icons8-portefeuille-60 (1).png"
-            class="sidebar-logo"
-            alt="logo"
-          />
+          <img src="./icons/icons8-portefeuille-60 (1).png" class="sidebar-logo" alt="logo" />
         </div>
         <div class="title-sidebar">
-          <h1>Fiscal intelligence</h1>
-          <p>Personnal account</p>
+          <h1>Fiscal Intelligence</h1>
+          <p class="account-label">Personal account</p>
         </div>
       </div>
+
       <div class="menu-list">
         <div class="item-menu">
-          <img
-            src="./icons/icons8-disposition-du-tableau-de-bord-48.png"
-            class="img-item"
-            alt="logo"
-          />
-          <a href="#" class="menu-item" id="menuItem">Dashboard</a>
+          <img src="./icons/icons8-disposition-du-tableau-de-bord-48.png" class="img-item" alt="dashboard" />
+          <a href="#" class="menu-item">Dashboard</a>
+        </div>
+        <div class="item-menu active">
+          <img src="./icons/icons8-transaction-64.png" class="img-item" alt="transactions" />
+          <a href="#" class="menu-item active-link">Transactions</a>
         </div>
         <div class="item-menu">
-          <img
-            src="./icons/icons8-transaction-64.png"
-            class="img-item"
-            alt="logo"
-          />
-          <a href="#" class="menu-item" id="menuItem">Transactions</a>
+          <img src="./icons/icons8-transaction-64.png" class="img-item" alt="budgets" />
+          <a href="#" class="menu-item">Budgets</a>
+        </div>
+        <div class="item-menu">
+          <img src="./icons/icons8-transaction-64.png" class="img-item" alt="accounts" />
+          <a href="#" class="menu-item">Accounts</a>
+        </div>
+        <div class="item-menu">
+          <img src="./icons/icons8-transaction-64.png" class="img-item" alt="reports" />
+          <a href="#" class="menu-item">Reports</a>
+        </div>
+        <div class="item-menu">
+          <img src="./icons/icons8-transaction-64.png" class="img-item" alt="settings" />
+          <a href="#" class="menu-item">Settings</a>
+        </div>
+      </div>
+
+      <div class="sidebar-user">
+        <div class="user-avatar">AD</div>
+        <div class="user-info">
+          <p class="user-name">Alexandre Dupont</p>
+          <p class="user-role">Premium Member</p>
         </div>
       </div>
     </div>
 
     <div class="all-element-content">
+      <!-- Top header bar -->
       <div class="header-content">
-        <input type="text" />
+        <div class="search-wrapper">
+          <img src="./icons/icons8-accueil-24.png" class="search-icon" alt="search" />
+          <input type="text" placeholder="Rechercher une transaction..." class="search-input" />
+        </div>
         <div class="icon-header-content">
-          <img
-            src="./icons/icons8-transaction-64.png"
-            class="img-item"
-            alt="logo"
-          />
+          <img src="./icons/icons8-transaction-64.png" class="img-item" alt="notifications" />
         </div>
       </div>
 
       <div class="element">
+        <!-- Breadcrumb + Title -->
         <div class="Titre">
           <div class="path">
-            <img
-              class="home-icon"
-              src="./icons/icons8-accueil-24.png"
-              alt="home"
-            />
+            <img class="home-icon" src="./icons/icons8-accueil-24.png" alt="home" />
             <span>/</span>
             <span>Transactions</span>
             <span>/</span>
-            <span>Nouvelle dépense</span>
+            <span class="path-active">Nouvelle dépense</span>
           </div>
           <h2>Ajouter une dépense</h2>
-          <h3>
-            Saisissez les détails de votre transaction pour mettre à jour votre
-            budget
-          </h3>
+          <h3>Saisissez les détails de votre transaction pour mettre à jour votre budget</h3>
         </div>
 
         <div class="main-element">
-          <!-- Right side -->
+          <!-- Form -->
           <form action="">
             <div class="container-input">
               <div class="input-left">
-                <label for="">MONTANT</label>
+                <label for="montant">MONTANT</label>
                 <div class="input-container">
-                  <img src="./icons/icons8-accueil-24.png" alt="" />
-                  <input
-                    type="number"
-                    class="montant-input"
-                    placeholder="0.00"
-                  />
-                  <select name="" id="" class="montant">
-                    <option value="">Euro</option>
-                    <option value="">Ariary</option>
-                    <option value="">Dollar</option>
+                  <span class="currency-prefix">€</span>
+                  <input type="number" class="montant-input" placeholder="0.00" id="montant" />
+                  <select class="montant">
+                    <option value="eur">EUR</option>
+                    <option value="mga">Ariary</option>
+                    <option value="usd">Dollar</option>
                   </select>
                 </div>
               </div>
 
               <div class="input-right">
-                <label for="">Nom de la dépense</label>
+                <label for="nom-depense">NOM DE LA DÉPENSE</label>
                 <input
                   type="text"
                   class="nom-depense-input"
-                  placeholder="ex:Course hebdomadaire"
+                  placeholder="ex: Courses hebdomadaires"
+                  id="nom-depense"
                 />
               </div>
             </div>
 
             <div class="container-input">
               <div class="input-left">
-                <label for="">DATE</label>
+                <label for="date">DATE</label>
                 <div class="input-container">
-                  <img src="./icons/icons8-accueil-24.png" alt="" />
-                  <input type="date" class="montant" />
+                  <img src="./icons/icons8-accueil-24.png" class="input-icon" alt="" />
+                  <input type="date" class="date-input" id="date" value="2024-05-20" />
                 </div>
               </div>
+
               <div class="input-right">
-                <label for="">Catégorie</label>
+                <label>CATÉGORIE</label>
                 <div class="categorie-container">
-                  <div class="categorie-nourriture">
-                    <img src="./icons/icons8-accueil-24.png" alt="" />
+                  <div class="categorie-item" onclick="selectCategory(this)">
+                    <img src="./icons/icons8-accueil-24.png" class="cat-icon" alt="" />
                     <p class="categorie-txt">Nourriture</p>
                   </div>
-                  <div class="categorie-loisir">
-                    <img src="./icons/icons8-accueil-24.png" alt="" />
-                    <p class="categorie-txt">Loisir</p>
+                  <div class="categorie-item selected" onclick="selectCategory(this)">
+                    <img src="./icons/icons8-accueil-24.png" class="cat-icon" alt="" />
+                    <p class="categorie-txt">Loisirs</p>
                   </div>
-                  <div class="categorie-loyer">
-                    <img src="./icons/icons8-accueil-24.png" alt="" />
+                  <div class="categorie-item" onclick="selectCategory(this)">
+                    <img src="./icons/icons8-accueil-24.png" class="cat-icon" alt="" />
                     <p class="categorie-txt">Loyer</p>
                   </div>
                 </div>
@@ -136,25 +141,70 @@
 
             <div class="note-container">
               <label for="note">NOTES (OPTIONNEL)</label>
-              <textarea name="note" id="note"></textarea>
+              <textarea name="note" id="note" placeholder="Ajoutez des détails supplémentaires ici..."></textarea>
             </div>
 
             <div class="btn-container">
-              <button type="reset">annuler</button>
-              <button type="button">Enregistrer la dépense</button>
+              <button type="reset" class="btn-cancel">Annuler</button>
+              <button type="button" class="btn-save">Enregistrer la dépense</button>
             </div>
           </form>
 
-          <!-- Right side -->
+          <!-- Right side cards -->
           <div class="right-side">
-            <div class="description">
-              <p>Lorem ipsum dolor sit, amet consecteturt neque</p>
+            <div class="card card-blue">
+              <h4 class="card-blue-title">Gestion Intelligente</h4>
+              <p class="card-blue-text">
+                Cette dépense sera automatiquement déduite de votre budget "Loisirs" mensuel.
+              </p>
             </div>
-            <div class="card">1</div>
-            <div class="card">2</div>
+
+            <div class="card card-budget">
+              <p class="card-section-label">ÉTAT DU BUDGET : LOISIRS</p>
+              <div class="budget-amounts">
+                <div>
+                  <p class="budget-sub-label">Dépensé ce mois</p>
+                  <p class="budget-spent">342,00 €</p>
+                </div>
+                <div class="budget-total-col">
+                  <p class="budget-sub-label">Budget total</p>
+                  <p class="budget-total">500,00 €</p>
+                </div>
+              </div>
+              <div class="progress-bar-track">
+                <div class="progress-bar-fill"></div>
+              </div>
+              <div class="budget-info-box">
+                <img src="./icons/icons8-accueil-24.png" class="info-icon" alt="info" />
+                <p>Il vous reste <strong>158,00 €</strong> pour finir le mois en toute sérénité.</p>
+              </div>
+            </div>
+
+            <div class="card card-tip">
+              <p class="card-section-label">CONSEIL RAPIDE</p>
+              <p class="tip-text">
+                "Les dépenses de type 'Loisirs' ont augmenté de 12% par rapport au mois dernier.
+                Pensez à vérifier vos abonnements actifs."
+              </p>
+            </div>
           </div>
         </div>
       </div>
+
+      <footer class="page-footer">
+        <p>© 2024 Fiscal Intelligence. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms</a>
+        </div>
+      </footer>
     </div>
+
+    <script>
+      function selectCategory(el) {
+        document.querySelectorAll('.categorie-item').forEach(c => c.classList.remove('selected'));
+        el.classList.add('selected');
+      }
+    </script>
   </body>
 </html>
