@@ -1,0 +1,785 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", Arial, sans-serif;
+  display: flex;
+  min-height: 100vh;
+  background: #f8f9fc;
+  color: #1e293b;
+}
+
+/* ── Sidebar ── */
+.sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  background: white;
+  border-right: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 12px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 8px 24px;
+}
+
+.brand-icon {
+  width: 36px;
+  height: 36px;
+  background: #1d4ed8;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.brand-icon svg {
+  width: 18px;
+  height: 18px;
+  stroke: white;
+}
+
+.brand-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1d4ed8;
+  line-height: 1.2;
+}
+
+.brand-sub {
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+/* Nav */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #64748b;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+
+.nav-item svg {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+}
+
+.nav-item:hover {
+  background: #f1f5f9;
+  color: #1e293b;
+}
+
+.nav-item.active {
+  background: #eff6ff;
+  color: #1d4ed8;
+  font-weight: 600;
+}
+
+/* Add expense button */
+.add-expense-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #1d4ed8;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 11px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 16px 0;
+  font-family: inherit;
+  transition: background 0.15s;
+}
+
+.add-expense-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.add-expense-btn:hover {
+  background: #1e40af;
+}
+
+/* User */
+.sidebar-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 8px 0;
+  border-top: 1px solid #f1f5f9;
+}
+
+.user-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: #475569;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.user-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.user-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.user-email {
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+/* ── Main wrapper ── */
+.main-wrapper {
+  margin-left: 220px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ── Topbar ── */
+.topbar {
+  background: white;
+  border-bottom: 1px solid #e2e8f0;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f8f9fc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 8px 14px;
+  width: 280px;
+}
+
+.search-box svg {
+  width: 15px;
+  height: 15px;
+  stroke: #94a3b8;
+  flex-shrink: 0;
+}
+
+.search-box input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 13px;
+  color: #64748b;
+  width: 100%;
+  font-family: inherit;
+}
+
+.search-box input::placeholder {
+  color: #94a3b8;
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon-btn {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.icon-btn svg {
+  width: 17px;
+  height: 17px;
+  stroke: #64748b;
+}
+
+.topbar-divider {
+  width: 1px;
+  height: 24px;
+  background: #e2e8f0;
+  margin: 0 4px;
+}
+
+.btn-add-transaction {
+  background: #1d4ed8;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s;
+}
+
+.btn-add-transaction:hover {
+  background: #1e40af;
+}
+
+/* ── Page content ── */
+.page-content {
+  flex: 1;
+  padding: 28px;
+}
+
+/* ── Dashboard page ── */
+.dashboard-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.dashboard-header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+.dashboard-header p {
+  font-size: 13px;
+  color: #64748b;
+}
+
+.header-filters {
+  display: flex;
+  gap: 10px;
+}
+
+.filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: white;
+  font-size: 13px;
+  font-weight: 500;
+  color: #475569;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.filter-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Top cards row */
+.top-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+/* Balance card */
+.card-balance {
+  background: #1d4ed8;
+  border-radius: 14px;
+  padding: 24px;
+  color: white;
+}
+
+.card-balance-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #bfdbfe;
+  margin-bottom: 10px;
+}
+
+.card-balance-amount {
+  font-size: 34px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+}
+
+.balance-stat {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.stat-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.stat-icon svg {
+  width: 14px;
+  height: 14px;
+  stroke: white;
+}
+
+.stat-label {
+  font-size: 11px;
+  color: #bfdbfe;
+  margin-bottom: 1px;
+}
+
+.stat-value {
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+}
+
+.stat-value.negative {
+  color: #fca5a5;
+}
+
+/* Donut chart card */
+.card-donut {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 20px 24px;
+}
+
+.card-donut-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.donut-body {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.donut-svg-wrap {
+  flex-shrink: 0;
+}
+
+.donut-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.legend-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.legend-label {
+  font-size: 13px;
+  color: #475569;
+}
+
+.legend-pct {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+/* Savings card */
+.card-savings {
+  background: white;
+  border: 2px dashed #e2e8f0;
+  border-radius: 14px;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+}
+
+.savings-icon {
+  font-size: 32px;
+  margin-bottom: 4px;
+}
+
+.savings-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.savings-sub {
+  font-size: 12px;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.savings-progress-track {
+  width: 100%;
+  background: #e2e8f0;
+  border-radius: 99px;
+  height: 6px;
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.savings-progress-fill {
+  background: #22c55e;
+  height: 100%;
+  border-radius: 99px;
+  width: 85%;
+}
+
+/* ── Recent transactions ── */
+.transactions-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.transactions-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.transactions-header h2 {
+  font-size: 17px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.voir-tout {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1d4ed8;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Table */
+.tx-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tx-table thead tr {
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.tx-table th {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #94a3b8;
+  padding: 0 0 12px;
+  text-align: left;
+}
+
+.tx-table th:last-child {
+  text-align: right;
+}
+
+.tx-table tbody tr {
+  border-bottom: 1px solid #f8f9fc;
+  transition: background 0.1s;
+}
+
+.tx-table tbody tr:hover {
+  background: #f8f9fc;
+}
+
+.tx-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.tx-table td {
+  padding: 16px 0;
+  font-size: 14px;
+  color: #1e293b;
+}
+
+.tx-table td:last-child {
+  text-align: right;
+  font-weight: 700;
+}
+
+.tx-detail {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tx-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.tx-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.tx-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.badge-nourriture {
+  background: #dcfce7;
+  color: #15803d;
+}
+.badge-loisirs {
+  background: #fef9c3;
+  color: #a16207;
+}
+.badge-revenu {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+.badge-logement {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.tx-date {
+  font-size: 13px;
+  color: #64748b;
+}
+
+.tx-amount.positive {
+  color: #16a34a;
+}
+.tx-amount.negative {
+  color: #0f172a;
+}
+
+/* ── Budget cards ── */
+.budget-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.budget-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 20px;
+}
+
+.budget-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.budget-card-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: #64748b;
+}
+
+.budget-card-pct {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.pct-normal {
+  color: #16a34a;
+}
+.pct-warning {
+  color: #dc2626;
+}
+.pct-ok {
+  color: #1d4ed8;
+}
+
+.budget-card-amount {
+  font-size: 22px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 14px;
+}
+
+.budget-track {
+  background: #e2e8f0;
+  border-radius: 99px;
+  height: 6px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.budget-fill {
+  height: 100%;
+  border-radius: 99px;
+}
+
+.fill-green {
+  background: #22c55e;
+}
+.fill-red {
+  background: #ef4444;
+}
+
+.fill-blue {
+  background: #1d4ed8;
+}
+
+.budget-rest {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.budget-rest.warning {
+  color: #dc2626;
+}
+
+/* ── Placeholder pages ── */
+.placeholder-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  gap: 12px;
+  color: #94a3b8;
+}
+
+.placeholder-page h2 {
+  font-size: 22px;
+  color: #475569;
+}
+
+.placeholder-page p {
+  font-size: 14px;
+}
+
+/* ── Footer ── */
+.page-footer {
+  border-top: 1px solid #e2e8f0;
+  padding: 16px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+}
+
+.page-footer span {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-links a {
+  font-size: 12px;
+  color: #94a3b8;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: #64748b;
+}

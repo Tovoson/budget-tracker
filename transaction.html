@@ -13,7 +13,11 @@
     <div class="sidebar">
       <div class="header-sidebar">
         <div class="logo-container" id="logoContainer">
-          <img src="./icons/icons8-portefeuille-60 (1).png" class="sidebar-logo" alt="logo" />
+          <img
+            src="./icons/icons8-portefeuille-60 (1).png"
+            class="sidebar-logo"
+            alt="logo"
+          />
         </div>
         <div class="title-sidebar">
           <h1>Fiscal Intelligence</h1>
@@ -23,27 +27,51 @@
 
       <div class="menu-list">
         <div class="item-menu">
-          <img src="./icons/icons8-disposition-du-tableau-de-bord-48.png" class="img-item" alt="dashboard" />
+          <img
+            src="./icons/icons8-disposition-du-tableau-de-bord-48.png"
+            class="img-item"
+            alt="dashboard"
+          />
           <a href="#" class="menu-item">Dashboard</a>
         </div>
         <div class="item-menu active">
-          <img src="./icons/icons8-transaction-64.png" class="img-item" alt="transactions" />
+          <img
+            src="./icons/icons8-transaction-64.png"
+            class="img-item"
+            alt="transactions"
+          />
           <a href="#" class="menu-item active-link">Transactions</a>
         </div>
         <div class="item-menu">
-          <img src="./icons/icons8-transaction-64.png" class="img-item" alt="budgets" />
+          <img
+            src="./icons/icons8-transaction-64.png"
+            class="img-item"
+            alt="budgets"
+          />
           <a href="#" class="menu-item">Budgets</a>
         </div>
         <div class="item-menu">
-          <img src="./icons/icons8-transaction-64.png" class="img-item" alt="accounts" />
+          <img
+            src="./icons/icons8-transaction-64.png"
+            class="img-item"
+            alt="accounts"
+          />
           <a href="#" class="menu-item">Accounts</a>
         </div>
         <div class="item-menu">
-          <img src="./icons/icons8-transaction-64.png" class="img-item" alt="reports" />
+          <img
+            src="./icons/icons8-transaction-64.png"
+            class="img-item"
+            alt="reports"
+          />
           <a href="#" class="menu-item">Reports</a>
         </div>
         <div class="item-menu">
-          <img src="./icons/icons8-transaction-64.png" class="img-item" alt="settings" />
+          <img
+            src="./icons/icons8-transaction-64.png"
+            class="img-item"
+            alt="settings"
+          />
           <a href="#" class="menu-item">Settings</a>
         </div>
       </div>
@@ -61,11 +89,23 @@
       <!-- Top header bar -->
       <div class="header-content">
         <div class="search-wrapper">
-          <img src="./icons/icons8-accueil-24.png" class="search-icon" alt="search" />
-          <input type="text" placeholder="Rechercher une transaction..." class="search-input" />
+          <img
+            src="./icons/icons8-accueil-24.png"
+            class="search-icon"
+            alt="search"
+          />
+          <input
+            type="text"
+            placeholder="Rechercher une transaction..."
+            class="search-input"
+          />
         </div>
         <div class="icon-header-content">
-          <img src="./icons/icons8-transaction-64.png" class="img-item" alt="notifications" />
+          <img
+            src="./icons/icons8-transaction-64.png"
+            class="img-item"
+            alt="notifications"
+          />
         </div>
       </div>
 
@@ -73,14 +113,21 @@
         <!-- Breadcrumb + Title -->
         <div class="Titre">
           <div class="path">
-            <img class="home-icon" src="./icons/icons8-accueil-24.png" alt="home" />
+            <img
+              class="home-icon"
+              src="./icons/icons8-accueil-24.png"
+              alt="home"
+            />
             <span>/</span>
             <span>Transactions</span>
             <span>/</span>
             <span class="path-active">Nouvelle dépense</span>
           </div>
           <h2>Ajouter une dépense</h2>
-          <h3>Saisissez les détails de votre transaction pour mettre à jour votre budget</h3>
+          <h3>
+            Saisissez les détails de votre transaction pour mettre à jour votre
+            budget
+          </h3>
         </div>
 
         <div class="main-element">
@@ -91,8 +138,13 @@
                 <label for="montant">MONTANT</label>
                 <div class="input-container">
                   <span class="currency-prefix">€</span>
-                  <input type="number" class="montant-input" placeholder="0.00" id="montant" />
-                  <select class="montant">
+                  <input
+                    type="number"
+                    class="montant-input"
+                    placeholder="0.00"
+                    id="montantDepense"
+                  />
+                  <select class="montant" name="devise">
                     <option value="eur">EUR</option>
                     <option value="mga">Ariary</option>
                     <option value="usd">Dollar</option>
@@ -106,7 +158,7 @@
                   type="text"
                   class="nom-depense-input"
                   placeholder="ex: Courses hebdomadaires"
-                  id="nom-depense"
+                  id="nomDepense"
                 />
               </div>
             </div>
@@ -115,8 +167,17 @@
               <div class="input-left">
                 <label for="date">DATE</label>
                 <div class="input-container">
-                  <img src="./icons/icons8-accueil-24.png" class="input-icon" alt="" />
-                  <input type="date" class="date-input" id="date" value="2024-05-20" />
+                  <img
+                    src="./icons/icons8-accueil-24.png"
+                    class="input-icon"
+                    alt=""
+                  />
+                  <input
+                    type="date"
+                    class="date-input"
+                    id="date"
+                    value="2024-05-20"
+                  />
                 </div>
               </div>
 
@@ -124,15 +185,30 @@
                 <label>CATÉGORIE</label>
                 <div class="categorie-container">
                   <div class="categorie-item" onclick="selectCategory(this)">
-                    <img src="./icons/icons8-accueil-24.png" class="cat-icon" alt="" />
+                    <img
+                      src="./icons/icons8-accueil-24.png"
+                      class="cat-icon"
+                      alt=""
+                    />
                     <p class="categorie-txt">Nourriture</p>
                   </div>
-                  <div class="categorie-item selected" onclick="selectCategory(this)">
-                    <img src="./icons/icons8-accueil-24.png" class="cat-icon" alt="" />
+                  <div
+                    class="categorie-item selected"
+                    onclick="selectCategory(this)"
+                  >
+                    <img
+                      src="./icons/icons8-accueil-24.png"
+                      class="cat-icon"
+                      alt=""
+                    />
                     <p class="categorie-txt">Loisirs</p>
                   </div>
                   <div class="categorie-item" onclick="selectCategory(this)">
-                    <img src="./icons/icons8-accueil-24.png" class="cat-icon" alt="" />
+                    <img
+                      src="./icons/icons8-accueil-24.png"
+                      class="cat-icon"
+                      alt=""
+                    />
                     <p class="categorie-txt">Loyer</p>
                   </div>
                 </div>
@@ -141,12 +217,18 @@
 
             <div class="note-container">
               <label for="note">NOTES (OPTIONNEL)</label>
-              <textarea name="note" id="note" placeholder="Ajoutez des détails supplémentaires ici..."></textarea>
+              <textarea
+                name="note"
+                id="note"
+                placeholder="Ajoutez des détails supplémentaires ici..."
+              ></textarea>
             </div>
 
             <div class="btn-container">
               <button type="reset" class="btn-cancel">Annuler</button>
-              <button type="button" class="btn-save">Enregistrer la dépense</button>
+              <button type="button" class="btn-save" id="ajouterDepenseBtn">
+                Enregistrer la dépense
+              </button>
             </div>
           </form>
 
@@ -155,7 +237,8 @@
             <div class="card card-blue">
               <h4 class="card-blue-title">Gestion Intelligente</h4>
               <p class="card-blue-text">
-                Cette dépense sera automatiquement déduite de votre budget "Loisirs" mensuel.
+                Cette dépense sera automatiquement déduite de votre budget
+                "Loisirs" mensuel.
               </p>
             </div>
 
@@ -175,16 +258,23 @@
                 <div class="progress-bar-fill"></div>
               </div>
               <div class="budget-info-box">
-                <img src="./icons/icons8-accueil-24.png" class="info-icon" alt="info" />
-                <p>Il vous reste <strong>158,00 €</strong> pour finir le mois en toute sérénité.</p>
+                <img
+                  src="./icons/icons8-accueil-24.png"
+                  class="info-icon"
+                  alt="info"
+                />
+                <p>
+                  Il vous reste <strong>158,00 €</strong> pour finir le mois en
+                  toute sérénité.
+                </p>
               </div>
             </div>
 
             <div class="card card-tip">
               <p class="card-section-label">CONSEIL RAPIDE</p>
               <p class="tip-text">
-                "Les dépenses de type 'Loisirs' ont augmenté de 12% par rapport au mois dernier.
-                Pensez à vérifier vos abonnements actifs."
+                "Les dépenses de type 'Loisirs' ont augmenté de 12% par rapport
+                au mois dernier. Pensez à vérifier vos abonnements actifs."
               </p>
             </div>
           </div>
@@ -199,12 +289,5 @@
         </div>
       </footer>
     </div>
-
-    <script>
-      function selectCategory(el) {
-        document.querySelectorAll('.categorie-item').forEach(c => c.classList.remove('selected'));
-        el.classList.add('selected');
-      }
-    </script>
   </body>
 </html>
