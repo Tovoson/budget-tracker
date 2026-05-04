@@ -297,6 +297,14 @@ body {
   margin-bottom: 4px;
 }
 
+.dashboard-header-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
 .dashboard-header p {
   font-size: 13px;
   color: #64748b;
@@ -539,6 +547,405 @@ body {
   color: #1d4ed8;
   text-decoration: none;
   cursor: pointer;
+}
+
+/* ── Main layout: form + right cards ── */
+.main-element {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.left-side {
+  flex: 1;
+}
+
+/* ── Form card ── */
+form {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  height: auto;
+  width: auto;
+}
+
+.container-input {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+  display: block;
+}
+
+/* Amount field */
+.input-left {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 0;
+  padding: 0;
+  gap: 0;
+}
+
+.currency-prefix {
+  padding: 0 12px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #475569;
+  background: #f8f9fc;
+  border-right: 1px solid #e2e8f0;
+  height: 42px;
+  display: flex;
+  align-items: center;
+}
+
+.montant-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 0 12px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1e293b;
+  height: 42px;
+  font-family: inherit;
+  width: 80px;
+}
+
+.montant {
+  border: none;
+  border-left: 1px solid #e2e8f0;
+  background: #f8f9fc;
+  padding: 0 10px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #475569;
+  outline: none;
+  height: 42px;
+  font-family: inherit;
+  cursor: pointer;
+  border-radius: 0;
+}
+
+.input-icon {
+  width: 16px;
+  height: 16px;
+  opacity: 0.4;
+  margin: 0 10px;
+}
+
+.date-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 0 10px;
+  font-size: 13px;
+  color: #1e293b;
+  font-family: inherit;
+  height: 42px;
+  background: transparent;
+}
+
+/* Expense name field */
+.input-right {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.nom-depense-input {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 0 14px;
+  height: 42px;
+  font-size: 14px;
+  color: #1e293b;
+  outline: none;
+  font-family: inherit;
+  width: 100%;
+}
+
+.nom-depense-input:focus {
+  border-color: #93c5fd;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.08);
+}
+
+.nom-depense-input::placeholder {
+  color: #cbd5e1;
+}
+
+/* Categories */
+.categorie-container {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.categorie-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1.5px solid #e2e8f0;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  min-width: 70px;
+}
+
+.categorie-item:hover {
+  border-color: #93c5fd;
+}
+
+.categorie-item.selected {
+  border-color: #1d4ed8;
+  background-color: #eff6ff;
+}
+
+.cat-icon {
+  width: 22px;
+  height: 22px;
+}
+
+.categorie-txt {
+  font-size: 11px;
+  font-weight: 500;
+  color: #64748b;
+}
+
+.categorie-item.selected .categorie-txt {
+  color: #1d4ed8;
+}
+
+/* Notes */
+.note-container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+textarea {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 13px;
+  color: #1e293b;
+  font-family: inherit;
+  resize: none;
+  outline: none;
+  height: 90px;
+  width: 100%;
+}
+
+textarea:focus {
+  border-color: #93c5fd;
+}
+
+textarea::placeholder {
+  color: #cbd5e1;
+}
+
+/* Buttons */
+.btn-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.btn-cancel {
+  background: transparent;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #94a3b8;
+  cursor: pointer;
+  font-family: inherit;
+  border-radius: 8px;
+}
+
+.btn-cancel:hover {
+  color: #64748b;
+  background: #f8f9fc;
+}
+
+.btn-save {
+  background: #1d4ed8;
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.btn-save:hover {
+  background: #1e40af;
+}
+
+/* ── Right side cards ── */
+.right-side {
+  width: 240px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.card {
+  border-radius: 12px;
+  padding: 18px 20px;
+}
+
+.card-blue {
+  background: #1d4ed8;
+  color: white;
+}
+
+.card-blue-title {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: white;
+}
+
+.card-blue-text {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #bfdbfe;
+}
+
+.card-budget {
+  background: white;
+  border: 1px solid #e2e8f0;
+}
+
+.card-tip {
+  background: white;
+  border: 1px solid #e2e8f0;
+}
+
+.card-section-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #94a3b8;
+  margin-bottom: 14px;
+}
+
+.budget-amounts {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.budget-sub-label {
+  font-size: 11px;
+  color: #94a3b8;
+  margin-bottom: 2px;
+}
+
+.budget-spent {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.budget-total-col {
+  text-align: right;
+}
+
+.budget-total {
+  font-size: 15px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.progress-bar-track {
+  background: #e2e8f0;
+  border-radius: 99px;
+  height: 6px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  background: #22c55e;
+  height: 100%;
+  border-radius: 99px;
+  width: 68%;
+}
+
+.budget-info-box {
+  background: #eff6ff;
+  border-radius: 8px;
+  padding: 10px 12px;
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.info-icon {
+  width: 14px;
+  height: 14px;
+  opacity: 0.5;
+  margin-top: 1px;
+  flex-shrink: 0;
+}
+
+.budget-info-box p {
+  font-size: 11px;
+  color: #1e40af;
+  line-height: 1.5;
+}
+
+.budget-info-box strong {
+  font-weight: 700;
+}
+
+.tip-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #94a3b8;
+  margin-bottom: 10px;
+}
+
+.tip-text {
+  font-size: 12px;
+  color: #475569;
+  line-height: 1.6;
+  font-style: italic;
 }
 
 /* Table */

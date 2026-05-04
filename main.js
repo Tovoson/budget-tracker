@@ -1,7 +1,7 @@
 import { state } from "./data.js";
 import { renderDashboard } from "./components/dashboard.js";
 import { formatAmount, badgeClass, badgeLabel } from "./utils/helpers.js";
-import { renderTransactions } from "./components/transactions.js";
+import { renderTransactions, bindTransactions } from "./components/transactions.js";
 import { renderBudgetsPage } from "./components/budget.js";
 
 
@@ -28,6 +28,7 @@ function navigate(page) {
       break;
     case "transactions":
       content.innerHTML = renderTransactions();
+      bindTransactions();
       break;
     case "budgets":
       content.innerHTML = renderBudgetsPage();
