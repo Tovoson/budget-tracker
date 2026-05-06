@@ -1,5 +1,6 @@
 import { state } from "../data.js";
 import { formatAmount, badgeClass, badgeLabel } from "../utils/helpers.js";
+import { iconLabel } from "../utils/helpers.js";
 
 let expenses = [];
 let selectedCategory = "Loisirs";
@@ -11,11 +12,12 @@ function addExpense() {
   const note = document.getElementById("note");
 
   const expense = {
-    nom: expenseName.value,
-    montant: parseFloat(montantDepense.value),
+    name: expenseName.value,
+    amount: parseFloat(montantDepense.value),
     date: expenseDate.value,
     note: note.value,
-    categorie: selectedCategory,
+    category: selectedCategory,
+    icon: iconLabel(selectedCategory),
   };
 
   expenses.push(expense);
@@ -52,7 +54,7 @@ export function renderTransactions() {
         <form action="">
             <div class="container-input">
               <div class="input-left">
-                <label for="montant">MONTANT</label>
+                <label for="montantDepense">MONTANT</label>
                 <div class="input-container">
                   <span class="currency-prefix">€</span>
                   <input
@@ -70,7 +72,7 @@ export function renderTransactions() {
               </div>
 
               <div class="input-right">
-                <label for="nom-depense">NOM DE LA DÉPENSE</label>
+                <label for="nomDepense">NOM DE LA DÉPENSE</label>
                 <input
                   type="text"
                   class="nom-depense-input"
@@ -99,7 +101,7 @@ export function renderTransactions() {
               </div>
 
               <div class="input-right">
-                <label>CATÉGORIE</label>
+                <label for="categorie">CATÉGORIE</label>
                 <div class="categorie-container">
                   <div class="categorie-item" onclick="selectCategory(this)">
                     <img
@@ -149,7 +151,7 @@ export function renderTransactions() {
             </div>
           </form>
       
-        <h1 class="dashboard-header-title">Historique complet de vos transactions.</h1>
+          <h1 class="dashboard-header-title">Historique complet de vos transactions.</h1>
       
           <div class="transactions-card">
             <table class="tx-table">
@@ -162,7 +164,7 @@ export function renderTransactions() {
                 </tr>
               </thead>
               <tbody>
-                ${state.transactions
+                ${expenses
                   .map(
                     (tx) => `
                         <tr>
@@ -243,6 +245,10 @@ export function bindTransactions() {
     addExpenseBtn.addEventListener("click", function (e) {
       e.preventDefault();
       addExpense();
+      if(expenses.length > 1) {
+        // First expense added, re-render to show the table
+        renderTransactions();
+      }
     });
   }
 }

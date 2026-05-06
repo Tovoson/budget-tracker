@@ -24,3 +24,13 @@ export function badgeLabel(category) {
   };
   return map[category] || category;
 }
+
+export function iconLabel(icon) {
+  const icons = {
+    Loyer: "🏠",
+    Nourriture: "🛒",
+    Loisirs: "🎬",
+    Budget: "💰",
+  }
+  return icons[icon] || "❓";
+}
