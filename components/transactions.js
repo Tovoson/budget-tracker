@@ -1,11 +1,12 @@
 import { state } from "../data.js";
-import { formatAmount, badgeClass, badgeLabel } from "../utils/helpers.js";
+import { navigate } from "../main.js";
+import { formatAmount, badgeClass, badgeLabel, calculExpense, calculBudget } from "../utils/helpers.js";
 import { iconLabel } from "../utils/helpers.js";
 
 let expenses = [];
 let selectedCategory = "Loisirs";
 
-function addExpense() {
+async function addExpense() {
   const expenseName = document.getElementById("nomDepense");
   const montantDepense = document.getElementById("montantDepense");
   const expenseDate = document.getElementById("date");
@@ -20,13 +21,37 @@ function addExpense() {
     icon: iconLabel(selectedCategory),
   };
 
-  expenses.push(expense);
-  console.log(expenses);
+  try {
+    const response = fetch("http://localhost:3000/add-expense", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(expense),
+    });
+
+    // const result = await response.json();
+    console.log(response.message);
+  } catch (error) {
+    console.error("Error adding expense:", error);
+  }
+
   expenseName.value = "";
   montantDepense.value = "";
   expenseDate.value = "";
   note.value = "";
 }
+
+function fetchExpenses() {
+  const response = fetch("http://localhost:3000/getData")
+    .then((res) => res.json())
+    .then((data) => {
+      expenses = data.data;
+      console.log("Data from backend:", expenses);
+    })
+    .catch((err) => console.error("Error fetching data:", err));
+}
+  
 
 function selectCategory(el) {
   document
@@ -35,12 +60,18 @@ function selectCategory(el) {
   el.classList.add("selected");
 
   selectedCategory = el.querySelector(".categorie-txt").textContent;
-  console.log("selected category", selectedCategory);
+  // console.log("selected category", selectedCategory);
 }
+
 
 globalThis.selectCategory = selectCategory;
 
 export function renderTransactions() {
+
+  const spent = Math.abs(calculExpense(expenses));
+  const budget = calculBudget(expenses);
+  const progress = budget > 0 ? (spent / budget) * 100 : 0;
+
   return `
     <div class="dashboard-header">
       <div>
@@ -202,15 +233,15 @@ export function renderTransactions() {
             <div class="budget-amounts">
               <div>
                 <p class="budget-sub-label">Dépensé ce mois</p>
-                <p class="budget-spent">342,00 €</p>
+                <p class="budget-spent">${spent} Ar</p>
               </div>
               <div class="budget-total-col">
                 <p class="budget-sub-label">Budget total</p>
-                <p class="budget-total">500,00 €</p>
+                <p class="budget-total">${budget} Ar</p>
               </div>
             </div>
             <div class="progress-bar-track">
-              <div class="progress-bar-fill"></div>
+              <div class="progress-bar-fill" style="width: ${progress}%"></div>
             </div>
             <div class="budget-info-box">
               <img
@@ -219,7 +250,7 @@ export function renderTransactions() {
                 alt="info"
               />
               <p>
-                Il vous reste <strong>158,00 €</strong> pour finir le mois en
+                Il vous reste <strong>${budget - spent} Ar</strong> pour finir le mois en
                 toute sérénité.
               </p>
             </div>
@@ -240,15 +271,26 @@ export function renderTransactions() {
 }
 
 export function bindTransactions() {
+
+  fetchExpenses();
+
   const addExpenseBtn = document.getElementById("ajouterDepenseBtn");
   if (addExpenseBtn) {
     addExpenseBtn.addEventListener("click", function (e) {
       e.preventDefault();
       addExpense();
-      if(expenses.length > 1) {
+      if (expenses.length > 1) {
         // First expense added, re-render to show the table
         renderTransactions();
+        navigate("transactions");
       }
+
+      // const resp = fetch("http://localhost:3000/", {})
+      //   .then((res) => res.json())
+      //   .then((data) => console.log("Data from backend:", data))
+      //   .catch((err) => console.error("Error fetching data:", err));
     });
   }
 }
+
+

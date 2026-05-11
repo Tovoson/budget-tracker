@@ -34,3 +34,11 @@ export function iconLabel(icon) {
   }
   return icons[icon] || "❓";
 }
+
+export function calculExpense(expenses) {
+  return expenses.reduce((total, expense) => expense.amount < 0 ? total + expense.amount : total, 0);
+}
+
+export function calculBudget(expenses) {
+  return expenses.reduce((total, expense) => expense.amount > 0 ? total + expense.amount : total, 0);
+}

@@ -9,8 +9,11 @@ import { renderBudgetsPage } from "./components/budget.js";
 //  ROUTER — navigate between pages
 // ─────────────────────────────────────────
 
-function navigate(page) {
+export function navigate(page) {
   state.currentPage = page;
+
+  // Update URL without reloading
+  history.pushState(null, '', `/${page}`);
 
   // Update active nav item
   document.querySelectorAll(".nav-item").forEach((el) => {
@@ -86,6 +89,13 @@ document.addEventListener("DOMContentLoaded", () => {
     navigate("transactions");
   });
 
-  // Initial render
-  navigate("dashboard");
+  // Handle browser back/forward buttons
+  window.addEventListener('popstate', () => {
+    const path = window.location.pathname.slice(1) || 'dashboard';
+    navigate(path);
+  });
+
+  // Initial render based on current URL
+  const initialPage = window.location.pathname.slice(1) || 'dashboard';
+  navigate(initialPage);
 });
