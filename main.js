@@ -2,7 +2,7 @@ import { state } from "./data.js";
 import { renderDashboard } from "./components/dashboard.js";
 import { formatAmount, badgeClass, badgeLabel } from "./utils/helpers.js";
 import { renderTransactions, bindTransactions } from "./components/transactions.js";
-import { renderBudgetsPage } from "./components/budget.js";
+import { bindBudgets, renderBudgetsPage } from "./components/budget.js";
 
 
 // ─────────────────────────────────────────
@@ -12,13 +12,14 @@ import { renderBudgetsPage } from "./components/budget.js";
 export function navigate(page) {
   state.currentPage = page;
 
-  // Update URL without reloading
-  history.pushState(null, '', `/${page}`);
+  // Update URL hash so refresh works without server routing
+  window.location.hash = `#${page}`;
 
   // Update active nav item
   document.querySelectorAll(".nav-item").forEach((el) => {
-    el.classList.toggle("active", 
-        el.dataset.page === page // read html attribute data-page in each nav-item
+    el.classList.toggle(
+      "active",
+      el.dataset.page === page // read html attribute data-page in each nav-item
     );
   });
 
@@ -35,6 +36,7 @@ export function navigate(page) {
       break;
     case "budgets":
       content.innerHTML = renderBudgetsPage();
+      bindBudgets();
       break;
     default:
       content.innerHTML = renderPlaceholder(page);
@@ -89,13 +91,15 @@ document.addEventListener("DOMContentLoaded", () => {
     navigate("transactions");
   });
 
-  // Handle browser back/forward buttons
-  window.addEventListener('popstate', () => {
-    const path = window.location.pathname.slice(1) || 'dashboard';
-    navigate(path);
+  // Handle back/forward via hash changes
+  window.addEventListener("hashchange", () => {
+    const page = window.location.hash.slice(1) || "dashboard";
+    navigate(page);
+    
   });
+  // console.log(window.location.hash);
 
-  // Initial render based on current URL
-  const initialPage = window.location.pathname.slice(1) || 'dashboard';
+  // Initial render based on current hash
+  const initialPage = window.location.hash.slice(1) || "dashboard";
   navigate(initialPage);
 });

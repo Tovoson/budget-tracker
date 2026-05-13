@@ -43,7 +43,7 @@ async function addExpense() {
 }
 
 function fetchExpenses() {
-  const response = fetch("http://localhost:3000/getData")
+  const response = fetch("http://localhost:3000/getDataExpense")
     .then((res) => res.json())
     .then((data) => {
       expenses = data.data;

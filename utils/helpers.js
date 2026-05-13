@@ -42,3 +42,21 @@ export function calculExpense(expenses) {
 export function calculBudget(expenses) {
   return expenses.reduce((total, expense) => expense.amount > 0 ? total + expense.amount : total, 0);
 }
+
+export function colorClass(category) {
+  const colors = {
+    Loyer: "fill-blue",
+    Nourriture: "fill-green",
+    Loisirs: "fill-red",
+  }
+  return colors[category] || "fill-gray";
+}
+
+export function pctClass(category) {
+  const pctClasses = {
+    Loyer: "pct-ok",
+    Nourriture: "pct-normal",
+    Loisirs: "pct-warning",
+  }
+  return pctClasses[category] || "pct-gray";
+}
